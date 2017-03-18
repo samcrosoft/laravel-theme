@@ -112,7 +112,7 @@ class ThemeServiceProvider extends ServiceProvider {
      */
     public function registerBreadcrumb()
     {
-        $this->app['breadcrumb'] = $this->app->share(function($app)
+        $this->app->singleton('breadcrumb', function($app)
         {
             return new Breadcrumb($app['files']);
         });
